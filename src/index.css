@@ -26,7 +26,7 @@ body {
 }
 
 /* =========================
-   🔤 TYPOGRAPHY (PIXEL PERFECT)
+   🔤 TYPOGRAPHY
 ========================= */
 
 /* H1 */
@@ -66,7 +66,8 @@ body {
 
 /* Overline */
 .overline {
-  @apply text-[14px] uppercase tracking-[10px] text-primary;
+  @apply text-[14px] uppercase tracking-[10px];
+  color: var(--color-primary); /* ✅ FIXED */
 }
 
 /* Sub-title */
@@ -75,7 +76,7 @@ body {
 }
 
 /* =========================
-   🔘 BUTTONS (Exact Match)
+   🔘 BUTTONS
 ========================= */
 
 /* Primary Button */
@@ -94,7 +95,7 @@ body {
   background-color: var(--color-primary-light);
 }
 
-/* Secondary Button (Outline) */
+/* Secondary Button */
 .btn-secondary {
   border: 1px solid var(--color-black);
   color: var(--color-black);
@@ -110,7 +111,7 @@ body {
   color: var(--color-white);
 }
 
-/* Text Button (SHOP >) */
+/* Text Button */
 .btn-text {
   display: inline-flex;
   align-items: center;
@@ -130,7 +131,6 @@ body {
    🧾 FORM ELEMENTS
 ========================= */
 
-/* Input */
 .input {
   border: 1px solid #cfcfcf;
   padding: 12px 16px;
@@ -144,18 +144,15 @@ body {
   border-color: var(--color-primary);
 }
 
-/* Input Error */
 .input-error {
   border-color: red;
 }
 
-/* Label */
 .label {
   font-size: 12px;
   font-weight: 700;
 }
 
-/* Radio */
 .radio {
   display: flex;
   align-items: center;
@@ -175,9 +172,9 @@ body {
 ========================= */
 
 .container {
-  @apply max-w-[1110px] mx-auto px-6;
+  @apply max-w-[1110px] mx-auto px-6 md:px-10 lg:px-0;
 }
 
 .section {
-  @apply py-16;
+  @apply py-16 md:py-20 lg:py-24;
 }

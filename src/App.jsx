@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 // 🔁 Shared Components
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 
 // 📄 Pages
 import Home from "./pages/Home/Home";
@@ -28,7 +28,7 @@ function App() {
       </main>
 
       {/* 🔻 Global Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
