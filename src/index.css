@@ -1,113 +1,183 @@
 @import "tailwindcss";
 
+/* =========================
+   🎨 COLORS (Design Tokens)
+========================= */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --color-primary: #D87D4A;
+  --color-primary-light: #FBAF85;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --color-black: #101010;
+  --color-dark: #000000;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-gray: #F1F1F1;
+  --color-light-gray: #FAFAFA;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --color-white: #FFFFFF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
+/* =========================
+   🧠 BASE
+========================= */
 body {
-  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background-color: var(--color-light-gray);
+  color: var(--color-black);
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+/* =========================
+   🔤 TYPOGRAPHY (PIXEL PERFECT)
+========================= */
+
+/* H1 */
+.h1 {
+  @apply text-[56px] font-bold uppercase tracking-[2px] leading-[58px];
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* H2 */
+.h2 {
+  @apply text-[40px] font-bold uppercase tracking-[1.5px] leading-[44px];
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+/* H3 */
+.h3 {
+  @apply text-[32px] font-bold uppercase tracking-[1.15px] leading-[36px];
 }
 
-code,
-.counter {
-  font-family: var(--mono);
+/* H4 */
+.h4 {
+  @apply text-[28px] font-bold uppercase tracking-[2px] leading-[38px];
+}
+
+/* H5 */
+.h5 {
+  @apply text-[24px] font-bold uppercase tracking-[1.7px] leading-[33px];
+}
+
+/* H6 */
+.h6 {
+  @apply text-[18px] font-bold uppercase tracking-[1.3px] leading-[24px];
+}
+
+/* Body */
+.body-text {
+  @apply text-[15px] leading-[25px] font-medium;
+}
+
+/* Overline */
+.overline {
+  @apply text-[14px] uppercase tracking-[10px] text-primary;
+}
+
+/* Sub-title */
+.subtitle {
+  @apply text-[13px] uppercase tracking-[1px];
+}
+
+/* =========================
+   🔘 BUTTONS (Exact Match)
+========================= */
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 12px 28px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary {
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+  padding: 12px 28px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Text Button (SHOP >) */
+.btn-text {
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.btn-text:hover {
+  color: var(--color-primary);
+}
+
+/* =========================
+   🧾 FORM ELEMENTS
+========================= */
+
+/* Input */
+.input {
+  border: 1px solid #cfcfcf;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+/* Input Error */
+.input-error {
+  border-color: red;
+}
+
+/* Label */
+.label {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Radio */
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #cfcfcf;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.radio.active {
+  border-color: var(--color-primary);
+}
+
+/* =========================
+   🧩 UTILITIES
+========================= */
+
+.container {
+  @apply max-w-[1110px] mx-auto px-6;
+}
+
+.section {
+  @apply py-16;
 }
