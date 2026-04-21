@@ -14,34 +14,38 @@ export default function Navbar() {
     } hover:text-[#D87D4A] transition`;
 
   return (
-    <header className="bg-black text-white">
-      <div className="container h-[96px] flex items-center justify-between border-b border-white/10">
+    <header className="bg-black text-white border-b border-white/10 md:border-none">
 
-        {/* 🔥 Left */}
-        <div className="flex items-center gap-6">
-          {/* Mobile menu */}
-          <button
-            className="lg:hidden"
-            onClick={() => setOpen(!open)}
-          >
-            <img src={menuIcon} alt="menu" />
-          </button>
+      {/* 🔥 Wrapper */}
+      <div className="container">
 
-          {/* Logo */}
-          <img src={logo} alt="logo" />
+        {/* 🔥 Inner */}
+        <div className="h-[96px] flex items-center justify-between md:border-b md:border-white/10">
+
+          {/* Left */}
+          <div className="flex items-center gap-6">
+            <button
+              className="lg:hidden"
+              onClick={() => setOpen(!open)}
+            >
+              <img src={menuIcon} alt="menu" />
+            </button>
+
+            <img src={logo} alt="logo" />
+          </div>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex gap-8">
+            <NavLink to="/" className={linkClass}>Home</NavLink>
+            <NavLink to="/category/headphones" className={linkClass}>Headphones</NavLink>
+            <NavLink to="/category/speakers" className={linkClass}>Speakers</NavLink>
+            <NavLink to="/category/earphones" className={linkClass}>Earphones</NavLink>
+          </nav>
+
+          {/* Cart */}
+          <img src={cartIcon} alt="cart" />
+
         </div>
-
-        {/* 🔥 Desktop Nav */}
-        <nav className="hidden lg:flex gap-8">
-          <NavLink to="/" className={linkClass}>Home</NavLink>
-          <NavLink to="/category/headphones" className={linkClass}>Headphones</NavLink>
-          <NavLink to="/category/speakers" className={linkClass}>Speakers</NavLink>
-          <NavLink to="/category/earphones" className={linkClass}>Earphones</NavLink>
-        </nav>
-
-        {/* 🔥 Cart */}
-        <img src={cartIcon} alt="cart" />
-
       </div>
 
       {/* 🔥 Mobile Dropdown */}
