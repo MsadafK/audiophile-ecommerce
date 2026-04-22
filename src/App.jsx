@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 
 // 📄 Pages
 import Home from "./pages/Home/Home";
-import Category from "./pages/Category";
+import Category from "./pages/Category/Category";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 

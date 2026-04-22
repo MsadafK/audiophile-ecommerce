@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import yx1Desktop from "../../../assets/home/desktop/image-earphones-yx1.jpg";
-import yx1Tablet from "../../../assets/home/tablet/image-earphones-yx1.jpg";
-import yx1Mobile from "../../../assets/home/mobile/image-earphones-yx1.jpg";
+import yx1Desktop from "/assets/home/desktop/image-earphones-yx1.jpg";
+import yx1Tablet from "/assets/home/tablet/image-earphones-yx1.jpg";
+import yx1Mobile from "/assets/home/mobile/image-earphones-yx1.jpg";
 
 export default function YX1Section() {
   return (

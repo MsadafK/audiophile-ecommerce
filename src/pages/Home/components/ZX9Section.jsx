@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import zx9 from "../../../assets/home/desktop/image-speaker-zx9.png";
-import pattern from "../../../assets/home/desktop/pattern-circles.svg";
+import zx9 from "/assets/home/desktop/image-speaker-zx9.png";
+import pattern from "/assets/home/desktop/pattern-circles.svg";
 
 export default function ZX9Section() {
   return (

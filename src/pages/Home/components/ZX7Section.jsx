@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import zx7Desktop from "../../../assets/home/desktop/image-speaker-zx7.jpg";
-import zx7Tablet from "../../../assets/home/tablet/image-speaker-zx7.jpg";
-import zx7Mobile from "../../../assets/home/mobile/image-speaker-zx7.jpg";
+import zx7Desktop from "/assets/home/desktop/image-speaker-zx7.jpg";
+import zx7Tablet from "/assets/home/tablet/image-speaker-zx7.jpg";
+import zx7Mobile from "/assets/home/mobile/image-speaker-zx7.jpg";
 
 export default function ZX7Section() {
   return (

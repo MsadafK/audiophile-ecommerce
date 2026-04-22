@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
-import logo from "../../assets/shared/desktop/logo.svg";
-import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
-import menuIcon from "../../assets/shared/tablet/icon-hamburger.svg";
+import logo from "/assets/shared/desktop/logo.svg";
+import cartIcon from "/assets/shared/desktop/icon-cart.svg";
+import menuIcon from "/assets/shared/tablet/icon-hamburger.svg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

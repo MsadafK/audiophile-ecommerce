@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-import logo from "../../assets/shared/desktop/logo.svg";
-import facebook from "../../assets/shared/desktop/icon-facebook.svg";
-import twitter from "../../assets/shared/desktop/icon-twitter.svg";
-import instagram from "../../assets/shared/desktop/icon-instagram.svg";
+import logo from "/assets/shared/desktop/logo.svg";
+import facebook from "/assets/shared/desktop/icon-facebook.svg";
+import twitter from "/assets/shared/desktop/icon-twitter.svg";
+import instagram from "/assets/shared/desktop/icon-instagram.svg";
 
 export default function Footer() {
   const linkClass = ({ isActive }) =>
@@ -24,7 +24,7 @@ export default function Footer() {
             absolute top-0 left-1/2 -translate-x-1/2
             w-[100px] h-1 bg-[#D87D4A]
             lg:left-0 lg:translate-x-0
-            -translate-y-[64px]
+            -translate-y-[48px] lg:-translate-y-[64px]
         " />
 
         {/* 🔥 Top Row */}
