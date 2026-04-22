@@ -5,7 +5,7 @@ import pattern from "../../../assets/home/desktop/pattern-circles.svg";
 
 export default function ZX9Section() {
   return (
-    <section className="py-24">
+    <section className="my-6 md:mb-12">
       <div className="container">
 
         <div className="
