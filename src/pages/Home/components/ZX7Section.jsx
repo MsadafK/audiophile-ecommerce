@@ -17,14 +17,14 @@ export default function ZX7Section() {
 
           bg-no-repeat bg-cover bg-right
 
-          /* 🔥 MOBILE */
-          bg-[url('/src/assets/home/mobile/image-speaker-zx7.jpg')]
+          /* MOBILE */
+          bg-[url('/assets/home/mobile/image-speaker-zx7.jpg')]
 
-          /* 🔥 TABLET */
-          md:bg-[url('/src/assets/home/tablet/image-speaker-zx7.jpg')]
+          /* TABLET */
+          md:bg-[url('/assets/home/tablet/image-speaker-zx7.jpg')]
 
-          /* 🔥 DESKTOP */
-          lg:bg-[url('/src/assets/home/desktop/image-speaker-zx7.jpg')]
+          /* DESKTOP */
+          lg:bg-[url('/assets/home/desktop/image-speaker-zx7.jpg')]
         "
       >
 

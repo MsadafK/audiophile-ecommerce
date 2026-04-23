@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-
+import CartModal from "../Cart/CartModal";
 import logo from "/assets/shared/desktop/logo.svg";
 import cartIcon from "/assets/shared/desktop/icon-cart.svg";
 import menuIcon from "/assets/shared/tablet/icon-hamburger.svg";
 
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const linkClass = ({ isActive }) =>
     `uppercase text-[13px] tracking-[2px] ${
@@ -14,6 +16,7 @@ export default function Navbar() {
     } hover:text-[#D87D4A] transition`;
 
   return (
+    <>
     <header className="bg-black text-white border-b border-white/10 md:border-none">
 
       {/* 🔥 Wrapper */}
@@ -43,8 +46,9 @@ export default function Navbar() {
           </nav>
 
           {/* Cart */}
-          <img src={cartIcon} alt="cart" />
-
+          <button onClick={() => setShowCart(prev => !prev)}>
+            <img src={cartIcon} alt="cart" />
+          </button>
         </div>
       </div>
 
@@ -60,5 +64,18 @@ export default function Navbar() {
         </div>
       )}
     </header>
+    {showCart && (
+            <>
+              {/* Overlay */}
+              <div
+                className="fixed inset-0 bg-black/50 z-40"
+                onClick={() => setShowCart(false)}
+              />
+
+              {/* Modal */}
+              <CartModal className="z-50" />
+            </>
+      )}
+    </>
   );
 }
