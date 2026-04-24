@@ -178,3 +178,29 @@ body {
 .section {
   @apply py-16 md:py-20 lg:py-24;
 }
+
+.input {
+  width: 100%;
+  border: 1px solid #cfcfcf;
+  padding: 12px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #d87d4a;
+}
+
+.radio {
+  border: 1px solid #cfcfcf;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.radio.active {
+  border-color: #d87d4a;
+}
