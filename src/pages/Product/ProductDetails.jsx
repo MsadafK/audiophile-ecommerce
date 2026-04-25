@@ -87,7 +87,6 @@ export default function ProductDetails() {
                     );
 
                     setQuantity(1); // 🔥 reset
-                    alert("Added to cart");
                     }}
                 >
                 ADD TO CART

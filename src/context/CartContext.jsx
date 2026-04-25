@@ -1,13 +1,9 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-
-  useEffect(() => {
-  console.log("cart updated:", cart);
-}, [cart]);
 
   // ➕ ADD TO CART
   const addToCart = (product, quantity) => {
@@ -31,17 +27,19 @@ export function CartProvider({ children }) {
     setCart(prev => prev.filter(item => item.id !== id));
   };
 
-  // 🔄 UPDATE QUANTITY
+  // 🔄 UPDATE QUANTITY (🔥 FIXED)
   const updateQuantity = (id, type) => {
     setCart(prev =>
-      prev.map(item => {
-        if (item.id !== id) return item;
+      prev
+        .map(item => {
+          if (item.id !== id) return item;
 
-        const newQty =
-          type === "inc" ? item.quantity + 1 : item.quantity - 1;
+          const newQty =
+            type === "inc" ? item.quantity + 1 : item.quantity - 1;
 
-        return { ...item, quantity: newQty < 1 ? 1 : newQty };
-      })
+          return { ...item, quantity: newQty };
+        })
+        .filter(item => item.quantity > 0) // 🔥 REMOVE if 0
     );
   };
 
@@ -54,6 +52,12 @@ export function CartProvider({ children }) {
     0
   );
 
+  // 🔢 TOTAL ITEMS (🔥 IMPORTANT)
+  const totalItems = cart.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
+
   return (
     <CartContext.Provider
       value={{
@@ -62,7 +66,8 @@ export function CartProvider({ children }) {
         removeItem,
         updateQuantity,
         clearCart,
-        total
+        total,
+        totalItems // 🔥 NEW
       }}
     >
       {children}

@@ -28,6 +28,7 @@ export default function CategorySection() {
             >
               {/* 🔥 Card */}
               <div className="
+                product-card   /* ✅ ADDED */
                 bg-[#F1F1F1]
                 rounded-lg
                 pt-20 pb-8

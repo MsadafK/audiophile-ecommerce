@@ -78,6 +78,14 @@ body {
 /* =========================
    🔘 BUTTONS
 ========================= */
+button,
+a {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
 
 /* Primary Button */
 .btn-primary {
@@ -89,10 +97,17 @@ body {
   font-size: 13px;
   font-weight: 700;
   transition: 0.3s;
+  display: inline-block;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
   background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
 }
 
 /* Secondary Button */
@@ -103,12 +118,18 @@ body {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 700;
-  transition: 0.3s;
+
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
   background-color: var(--color-black);
   color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: scale(0.96);
 }
 
 /* Text Button */
@@ -116,15 +137,24 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+
   color: rgba(0, 0, 0, 0.5);
+
+  transition: all 0.2s ease;
 }
 
 .btn-text:hover {
   color: var(--color-primary);
+  transform: translateX(3px); /* 🔥 subtle movement */
+}
+
+.btn-text:active {
+  transform: scale(0.95);
 }
 
 /* =========================
@@ -204,3 +234,55 @@ body {
 .radio.active {
   border-color: #d87d4a;
 }
+
+.section-title {
+  color: #d87d4a;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* BASE BUTTON */
+
+
+/* HOVER */
+
+
+/* FULL WIDTH VARIANT */
+.btn-full {
+  width: 100%;
+  text-align: center;
+}
+
+/* =========================
+   🧩 PRODUCT CARD (NORMAL)
+========================= */
+
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* IMAGE ZOOM (safe for normal cards) */
+.product-card img {
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.06);
+}
+
+/* CTA subtle lift */
+.product-card .btn-primary {
+  transition: all 0.2s ease;
+}
+
+.product-card:hover .btn-primary {
+  transform: translateY(-2px);
+}
+

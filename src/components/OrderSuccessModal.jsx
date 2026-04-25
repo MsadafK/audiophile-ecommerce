@@ -1,70 +1,81 @@
-import { useCart } from "../context/CartContext";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function OrderSuccessModal({ onClose }) {
-  const { cart, total, clearCart } = useCart();
+export default function OrderSuccessModal({ cart, total, onClose }) {
+  const [showAll, setShowAll] = useState(false);
 
   const firstItem = cart[0];
-  const otherCount = cart.length - 1;
+  const remaining = cart.length - 1;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center px-4 z-50">
 
-      <div className="bg-white w-full max-w-[500px] p-6 rounded-lg">
+      <div className="bg-white rounded-lg p-6 md:p-10 w-full max-w-[540px]">
 
+        {/* ICON */}
         <div className="w-12 h-12 bg-[#D87D4A] rounded-full flex items-center justify-center mb-6">
           ✓
         </div>
 
-        <h2 className="text-2xl font-bold mb-4">
-          THANK YOU FOR YOUR ORDER
+        {/* TITLE */}
+        <h2 className="text-2xl md:text-[32px] font-bold leading-tight mb-4">
+          THANK YOU <br /> FOR YOUR ORDER
         </h2>
 
         <p className="text-black/50 mb-6">
           You will receive an email confirmation shortly.
         </p>
 
-        <div className="flex flex-col md:flex-row overflow-hidden rounded-lg">
+        {/* SUMMARY BOX */}
+        <div className="rounded-lg overflow-hidden md:flex">
 
           {/* LEFT */}
           <div className="bg-[#F1F1F1] p-4 flex-1">
+
             <div className="flex items-center gap-4 mb-4">
               <img src={firstItem.image} className="w-12 h-12" />
-
               <div>
                 <p className="font-bold text-sm">{firstItem.name}</p>
                 <p className="text-black/50 text-sm">$ {firstItem.price}</p>
               </div>
-
-              <p className="ml-auto text-black/50">
-                x{firstItem.quantity}
-              </p>
+              <p className="ml-auto text-black/50">x{firstItem.quantity}</p>
             </div>
 
-            {otherCount > 0 && (
-              <p className="text-center text-black/50 text-sm border-t pt-2">
-                and {otherCount} other item(s)
-              </p>
+            {showAll && cart.slice(1).map(item => (
+              <div key={item.id} className="flex justify-between text-sm mb-2">
+                <span>{item.name}</span>
+                <span>x{item.quantity}</span>
+              </div>
+            ))}
+
+            <hr className="my-3" />
+
+            {remaining > 0 && (
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="text-xs text-black/50"
+              >
+                {showAll
+                  ? "View less"
+                  : `and ${remaining} other item(s)`}
+              </button>
             )}
+
           </div>
 
           {/* RIGHT */}
-          <div className="bg-black text-white p-4 flex flex-col justify-center">
-            <p className="text-white/50 text-sm">GRAND TOTAL</p>
-            <p className="font-bold text-lg">$ {total + 50}</p>
+          <div className="bg-black text-white p-6 flex flex-col justify-center md:w-[200px]">
+            <p className="text-white/50 text-sm mb-2">GRAND TOTAL</p>
+            <p className="text-lg font-bold">$ {total + 50}</p>
           </div>
 
         </div>
 
-        <Link
-          to="/"
-          onClick={() => {
-            clearCart();
-            onClose();
-          }}
-          className="block mt-6 text-center bg-[#D87D4A] text-white py-3"
-        >
-          BACK TO HOME
+        {/* BUTTON */}
+        <Link to="/">
+          <button className="btn-primary mt-6 w-full">
+            BACK TO HOME
+          </button>
         </Link>
 
       </div>
