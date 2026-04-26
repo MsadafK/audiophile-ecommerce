@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function OrderSuccessModal({ cart, total, onClose }) {
   const [showAll, setShowAll] = useState(false);
@@ -72,11 +71,9 @@ export default function OrderSuccessModal({ cart, total, onClose }) {
         </div>
 
         {/* BUTTON */}
-        <Link to="/">
-          <button className="btn-primary mt-6 w-full">
-            BACK TO HOME
-          </button>
-        </Link>
+        <button onClick={onClose} className="btn-primary mt-6 w-full">
+          BACK TO HOME
+        </button>
 
       </div>
     </div>

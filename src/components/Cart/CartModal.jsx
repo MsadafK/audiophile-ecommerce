@@ -31,12 +31,14 @@ export default function CartModal({ onClose }) {
             CART ({cart.length})
           </h2>
 
-          <button
-            onClick={clearCart}
-            className="text-sm text-black/50 underline"
-          >
-            Remove all
-          </button>
+          {cart.length > 0 && (
+            <button
+              onClick={clearCart}
+              className="text-sm text-black/50 underline"
+            >
+              Remove all
+            </button>
+          )}
         </div>
 
         {cart.length === 0 ? (
@@ -67,13 +69,22 @@ export default function CartModal({ onClose }) {
           <p className="font-bold">$ {total}</p>
         </div>
 
-        <Link
-          to="/checkout"
-          onClick={onClose}
-          className="block text-center bg-[#D87D4A] text-white py-3 uppercase"
-        >
-          CHECKOUT
-        </Link>
+        {cart.length === 0 ? (
+          <button
+            disabled
+            className="block w-full text-center bg-[#D87D4A] text-white py-3 uppercase opacity-50 cursor-not-allowed"
+          >
+            CHECKOUT
+          </button>
+        ) : (
+          <Link
+            to="/checkout"
+            onClick={onClose}
+            className="block text-center bg-[#D87D4A] text-white py-3 uppercase"
+          >
+            CHECKOUT
+          </Link>
+        )}
       </motion.div>
     </>
   );

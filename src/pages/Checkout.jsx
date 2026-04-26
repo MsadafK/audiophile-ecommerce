@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import OrderSuccessModal from "../components/OrderSuccessModal";
 
 export default function Checkout() {
-  const { cart, total } = useCart();
+  const { cart, total, clearCart  } = useCart();
   const navigate = useNavigate();
 
   const [payment, setPayment] = useState("e-money");
   const [showSuccess, setShowSuccess] = useState(false);
+  const [orderItems, setOrderItems] = useState([]);
 
   const [form, setForm] = useState({
     name: "",
@@ -63,6 +64,7 @@ export default function Checkout() {
     if (cart.length === 0) return; // extra safety
 
     if (validate()) {
+      setOrderItems([...cart]);
       setShowSuccess(true);
     }
   };
@@ -167,9 +169,13 @@ export default function Checkout() {
       {/* SUCCESS MODAL */}
       {showSuccess && (
         <OrderSuccessModal
-          cart={cart}
+          cart={orderItems}   // ✅ use snapshot
           total={total}
-          onClose={() => setShowSuccess(false)}
+          onClose={() => {
+            clearCart();
+            setShowSuccess(false);
+            navigate("/");
+          }}
         />
       )}
     </section>
