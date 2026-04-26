@@ -17,7 +17,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="bg-light-gray min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
 
       <Navbar />
       <ScrollToTop />

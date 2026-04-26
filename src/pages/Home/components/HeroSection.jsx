@@ -8,7 +8,6 @@ export default function HeroSection() {
   return (
     <section className="bg-black">
 
-      {/* 🔥 EVERYTHING inside container */}
       <div className="container relative overflow-hidden h-[600px] md:h-[720px]">
 
         {/* IMAGE */}
@@ -21,13 +20,37 @@ export default function HeroSection() {
             className="
               absolute inset-0 w-full h-full object-cover
 
-              /* 🔥 CONTROL POSITION */
               object-center
               md:object-[center_40%]
               lg:object-[right_center]
+
+              lg:translate-x-[20%]
             "
+            style={{
+              filter: `
+                drop-shadow(0 0 20px rgba(255,255,255,0.25))
+                drop-shadow(0 0 40px rgba(255,255,255,0.15))
+                drop-shadow(0 0 80px rgba(255,255,255,0.08))
+              `
+            }}
           />
         </picture>
+
+        {/* 🔥 SPOTLIGHT (ONLY DESKTOP) */}
+        <div
+          className="hidden lg:block absolute inset-0 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(
+                circle at 85% 50%,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0.4) 25%,
+                rgba(0,0,0,0.8) 50%,
+                rgba(0,0,0,1) 75%
+              )
+            `,
+          }}
+        />
 
         {/* CONTENT */}
         <div className="
@@ -37,7 +60,7 @@ export default function HeroSection() {
 
           <div className="
             max-w-[320px] md:max-w-[380px] lg:max-w-[400px]
-            text-center lg:text-left
+            text-center md:text-center lg:text-left
             mx-auto lg:mx-0
           ">
 
