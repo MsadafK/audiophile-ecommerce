@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* =========================
    🎨 COLORS (Design Tokens)
 ========================= */
@@ -202,7 +206,7 @@ button:focus {
 ========================= */
 
 .container {
-  @apply max-w-[1110px] mx-auto px-6 md:px-10 lg:px-0;
+  @apply w-full max-w-[1110px] mx-auto px-6 md:px-10 lg:px-6;
 }
 
 .section {
@@ -242,12 +246,6 @@ button:focus {
   font-weight: bold;
   margin-bottom: 16px;
 }
-
-/* BASE BUTTON */
-
-
-/* HOVER */
-
 
 /* FULL WIDTH VARIANT */
 .btn-full {

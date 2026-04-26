@@ -4,33 +4,44 @@ import { useState, useEffect } from "react";
 import logo from "/assets/shared/desktop/logo.svg";
 import cartIcon from "/assets/shared/desktop/icon-cart.svg";
 import menuIcon from "/assets/shared/tablet/icon-hamburger.svg";
-import closeIcon from "/assets/shared/desktop/icon-close.svg"; // 🔥 add this icon
+
+import CartModal from "../Cart/CartModal";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const location = useLocation();
 
-  // 🔥 Close menu on route change
   useEffect(() => {
     setOpen(false);
   }, [location]);
 
   const linkClass = ({ isActive }) =>
     `uppercase text-[15px] tracking-[2px] ${
+      isActive ? "text-[#D87D4A]" : "text-white"
+    } hover:text-[#D87D4A] transition`;
+
+  const mobileLinkClass = ({ isActive }) =>
+    `uppercase tracking-[2px] ${
       isActive ? "text-[#D87D4A]" : "text-black"
     } hover:text-[#D87D4A] transition`;
 
   return (
     <>
       <header className="bg-black text-white relative z-50">
+        
+        {/* NAV CONTENT */}
         <div className="container">
           <div className="h-[72px] flex items-center justify-between">
 
             {/* LEFT */}
             <div className="flex items-center gap-6">
-              <button onClick={() => setOpen(!open)}>
+              <button
+                onClick={() => setOpen(!open)}
+                className="lg:hidden"
+              >
                 {open ? (
-                  <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="20" height="20">
                     <path d="M1 1L19 19M19 1L1 19" stroke="#fff" strokeWidth="2" />
                   </svg>
                 ) : (
@@ -41,48 +52,60 @@ export default function Navbar() {
               <img src={logo} alt="logo" />
             </div>
 
+            {/* DESKTOP NAV */}
+            <nav className="hidden lg:flex gap-8">
+              <NavLink to="/" end className={linkClass}>Home</NavLink>
+              <NavLink to="/category/headphones" className={linkClass}>Headphones</NavLink>
+              <NavLink to="/category/speakers" className={linkClass}>Speakers</NavLink>
+              <NavLink to="/category/earphones" className={linkClass}>Earphones</NavLink>
+            </nav>
+
             {/* CART */}
-            <img src={cartIcon} alt="cart" />
+            <button onClick={() => setCartOpen(true)}>
+              <img src={cartIcon} alt="cart" />
+            </button>
+
           </div>
         </div>
+
+        {/* 🔥 BORDER LINE */}
+        <div className="border-b border-white/10 w-full lg:w-[1100px] lg:mx-auto" />
+
       </header>
 
-      {/* 🔥 OVERLAY */}
+      {/* OVERLAY */}
       {open && (
         <div
-          className="fixed inset-0 bg-black/40 z-40"
+          className="fixed inset-0 bg-black/40 z-40 lg:hidden"
           onClick={() => setOpen(false)}
         />
       )}
 
-      {/* 🔥 MOBILE MENU */}
+      {/* MOBILE MENU */}
       <div
         className={`
           fixed top-[72px] left-0 w-full bg-white z-50
           transition-all duration-300 ease-in-out
-          ${open ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0 pointer-events-none"}
+          lg:hidden
+          ${
+            open
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-5 opacity-0 pointer-events-none"
+          }
         `}
       >
         <nav className="flex flex-col px-6 py-6 gap-6">
-
-          <NavLink to="/" className={linkClass}>
-            Home
-          </NavLink>
-
-          <NavLink to="/category/headphones" className={linkClass}>
-            Headphones
-          </NavLink>
-
-          <NavLink to="/category/speakers" className={linkClass}>
-            Speakers
-          </NavLink>
-
-          <NavLink to="/category/earphones" className={linkClass}>
-            Earphones
-          </NavLink>
-
+          <NavLink to="/" end className={mobileLinkClass}>Home</NavLink>
+          <NavLink to="/category/headphones" className={mobileLinkClass}>Headphones</NavLink>
+          <NavLink to="/category/speakers" className={mobileLinkClass}>Speakers</NavLink>
+          <NavLink to="/category/earphones" className={mobileLinkClass}>Earphones</NavLink>
         </nav>
       </div>
+
+      {/* CART MODAL */}
+      {cartOpen && (
+        <CartModal onClose={() => setCartOpen(false)} />
+      )}
     </>
   );
 }
