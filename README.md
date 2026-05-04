@@ -8,8 +8,8 @@ This project focuses on **pixel-perfect UI**, **clean architecture**, and **real
 
 ## 🔥 Live Demo
 
-👉 [Live](https://your-live-link.vercel.app)
-👉 [Repository](https://github.com/your-username/audiophile-ecommerce)
+[![Live Site](https://img.shields.io/badge/Live%20Site-Visit-ff7a18?style=for-the-badge)](https://audiophile-ecommerce-eight-sigma.vercel.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-000?style=for-the-badge&logo=github)](https://github.com/MsadafK/audiophile-ecommerce)
 
 ---
 
