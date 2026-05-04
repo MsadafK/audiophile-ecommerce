@@ -31,15 +31,15 @@ This project focuses on **pixel-perfect UI**, **clean architecture**, and **real
 
 ### 🏠 Home Page
 
-![Home](./public/assets/home/desktop/image-hero.jpg)
+![Home](./public/readme-homepage.jpg)
 
 ### 📦 Product Page
 
-![Product](./public/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg)
+![Product](./public/readme-products-page.jpg)
 
 ### 🛒 Checkout Page
 
-![Checkout](./public/assets/checkout/icon-order-confirmation.svg)
+![Checkout](./public/readme-checkout-page.jpg)
 
 ---
 
