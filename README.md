@@ -149,3 +149,7 @@ Give it a ⭐ on GitHub — it helps a lot!
 
 ---
 
+## 📬 Feedback
+
+If you have suggestions or improvements, feel free to open an issue or connect!
+
